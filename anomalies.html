@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>It's All REAL | Understanding Anomalies</title>
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<link rel="icon" type="image/png" href="img/favicon.png">
+	</head>
+		
+	<body>
+		<div class="main-wrapper">
+			<header>
+				<h1 class="logo"><a href="index.html" title="It's All Real">It's All REAL</a></h1>
+				<nav class="primary">
+					<ul class="group">
+						<li><a href="index.html" title="Home">Home</a></li>
+						<li><a href="#" title="Demos">Demos</a></li>
+						<li><a href="videos.html" title="Videos">Videos</a></li>
+						<li><a href="myths.html" title="Myths">Myths</a></li>
+						<li><a href="news.html" title="News">News</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<div class="wrap-content group">
+				<section class="main-content">
+					<article class="posts group">
+						<div class="posts-1">
+							<h1><a href="#" title="What are Anomalies?">What are Anomalies?</a></h1>
+							<p>An anomaly, while having a seemingly complex and negative name, simply means a value's difference from the average in a set of data.
+							<br><br>
+							For example, let's say we have the following set of numbers:
+							<div id="anomaly">
+								{ 2, 9, 1, 5, 5, 8, 9, 9 }
+							</div>
+							<br>
+							From this set, we can extract a few statistics:
+							<div id="anomaly">
+								Mode (Most often occuring number) = 9
+								<br>
+								Median (Number in the center of the data set) = 5
+								<br>
+								Mean (Average of all data) = (Sum of all numbers) / (How many numbers are in the data set)
+								<br>
+								= (2 + 9 + 1 + 5 + 5 + 8 + 9 + 9) / 8
+								<br>
+								= 48 / 8
+								<br>
+								= 6
+							</div>
+							<br>
+							Now that we know the average of this data set, it's relatively easy to find an anomaly for any value within the data set. For example, let's calculate the anomaly for the 9:
+							<div id="anomaly">
+								Anomaly = The absolute value of (Value - Average)
+								<br>
+								= abs(9 - 6)
+								<br>
+								= abs(3)
+								<br>
+								= 3
+							</div></p>
+						</div>
+					</article>
+
+					<article class="posts group">
+						<div class="posts-1">
+							<h1><a href="#" title="Why is this Useful?">Why is this Useful?</a></h1>
+							<p>In any modern data collection scenario, it is crucial to use sensors to assign numeric values to things we wish to observe to achieve the highest accuracy and precision possible. Things like wind speed, pressure, temperature, humidity, etc. all require sensors to conduct mass, continuous measurements. However, due to the relative nature of these sensors, even measurements of the same exact thing with different sensors can yield differing results.
+							<br><br>
+							For example, let’s say two people measure the temperature (in Fahrenheit) of a cup of water over a period of 10 minutes using two different sensors, and get the following values:
+							<br>
+							<table class="anomaly-table">
+								<thead>Temperature Values over Time:</thead>
+								<tr>
+									<th class="tr-1 bold">Time (Min)</th>
+									<td class="tr-1 bold">1</td>
+									<td class="tr-1 bold">2</td>
+									<td class="tr-1 bold">3</td>
+									<td class="tr-1 bold">4</td>
+									<td class="tr-1 bold">5</td>
+									<td class="tr-1 bold">6</td>
+									<td class="tr-1 bold">7</td>
+									<td class="tr-1 bold">8</td>
+									<td class="tr-1 bold">9</td>
+									<td class="tr-1 bold">10</td>
+									<td class="tr-1 bold">Average (°F)</td>
+								</tr>
+								<tr>
+									<th class="tr-2 bold">Sensor 1 (°F)</th>
+									<td class="tr-2">74.3</td>
+									<td class="tr-2">74.1</td>
+									<td class="tr-2">73.5</td>
+									<td class="tr-2">73.9</td>
+									<td class="tr-2">74.7</td>
+									<td class="tr-2">75.5</td>
+									<td class="tr-2">76.1</td>
+									<td class="tr-2">76.3</td>
+									<td class="tr-2">76.7</td>
+									<td class="tr-2">76.5</td>
+									<td class="tr-2 bold">75.16</td>
+								</tr>
+								<tr>
+									<th class="tr-1 bold">Sensor 2 (°F)</th>
+									<td class="tr-1">75.0</td>
+									<td class="tr-1">74.8</td>
+									<td class="tr-1">74.2</td>
+									<td class="tr-1">74.6</td>
+									<td class="tr-1">75.4</td>
+									<td class="tr-1">76.2</td>
+									<td class="tr-1">76.8</td>
+									<td class="tr-1">77.0</td>
+									<td class="tr-1">77.4</td>
+									<td class="tr-1">77.2</td>
+									<td class="tr-1 bold">75.86</td>
+								</tr>
+							</table>
+							<br>
+							Despite the fact that the two sensors were measuring the exact same cup of water, the values are completely different! So, how can we normalize this data in order to compare the trends in each of the measurements? This is done by taking the temperature anomalies of each sensor:
+							<br><br>
+							<table class="anomaly-table">
+								<thead class="bold">Temperature Values over Time:</thead>
+								<tr>
+									<th class="tr-1 bold">Time (Min)</th>
+									<td class="tr-1 bold">1</td>
+									<td class="tr-1 bold">2</td>
+									<td class="tr-1 bold">3</td>
+									<td class="tr-1 bold">4</td>
+									<td class="tr-1 bold">5</td>
+									<td class="tr-1 bold">6</td>
+									<td class="tr-1 bold">7</td>
+									<td class="tr-1 bold">8</td>
+									<td class="tr-1 bold">9</td>
+									<td class="tr-1 bold">10</td>
+									<td class="tr-1 bold">Average (°F)</td>
+								</tr>
+								<tr>
+									<th class="tr-2 bold">Sensor 1 (°F)</th>
+									<td class="tr-2">74.3</td>
+									<td class="tr-2">74.1</td>
+									<td class="tr-2">73.5</td>
+									<td class="tr-2">73.9</td>
+									<td class="tr-2">74.7</td>
+									<td class="tr-2">75.5</td>
+									<td class="tr-2">76.1</td>
+									<td class="tr-2">76.3</td>
+									<td class="tr-2">76.7</td>
+									<td class="tr-2">76.5</td>
+									<td class="tr-2 bold">75.16</td>
+								</tr>
+								<tr>
+									<th class="tr-1 bold">Sensor 1 Anomalies (°F)</th>
+									<td class="tr-1">0.9886</td>
+									<td class="tr-1">0.9859</td>
+									<td class="tr-1">0.9779</td>
+									<td class="tr-1">0.9832</td>
+									<td class="tr-1">0.9939</td>
+									<td class="tr-1">1.0045</td>
+									<td class="tr-1">1.0125</td>
+									<td class="tr-1">1.0152</td>
+									<td class="tr-1">1.0205</td>
+									<td class="tr-1">1.0178</td>
+									<td class="tr-1 bold">1.000</td>
+								</tr>
+								<tr>
+									<th class="tr-2 bold">Sensor 2 (°F)</th>
+									<td class="tr-2">75.0</td>
+									<td class="tr-2">74.8</td>
+									<td class="tr-2">74.2</td>
+									<td class="tr-2">74.6</td>
+									<td class="tr-2">75.4</td>
+									<td class="tr-2">76.2</td>
+									<td class="tr-2">76.8</td>
+									<td class="tr-2">77.0</td>
+									<td class="tr-2">77.4</td>
+									<td class="tr-2">77.2</td>
+									<td class="tr-2 bold">75.86</td>
+								</tr>
+								<tr>
+									<th class="tr-1 bold">Sensor 2 Anomalies (°F)</th>
+									<td class="tr-1">0.9987</td>
+									<td class="tr-1">0.9860</td>
+									<td class="tr-1">0.9781</td>
+									<td class="tr-1">0.9834</td>
+									<td class="tr-1">0.9939</td>
+									<td class="tr-1">1.0045</td>
+									<td class="tr-1">1.0124</td>
+									<td class="tr-1">1.0150</td>
+									<td class="tr-1">1.0203</td>
+									<td class="tr-1">1.0177</td>
+									<td class="tr-1 bold">1.000</td>
+								</tr>
+							</table>
+							<br>
+							Graphing this data, we can see that the two line up almost perfectly:
+							<br>
+							<img src="img/anomaliesvtime.png" alt="Anomalies vs Time Graph">
+							</p>
+						</div>
+					</article>
+				</section>
+
+				<aside>
+					<div class="side-box">
+						<h2 class="sidebar-heading">Related Pages</h2>
+						<ul>
+							<li><a href="climate.html">Climate vs Weather</a></li>
+							<li class="current"><a href="anomalies.html">Understanding Anomalies</a></li>
+							<li><a href="greenhouse.html">The Greenhouse Effect</a></li>
+							<li><a href="internal.html">Internal Factors of Climate Change</a></li>
+							<ul>
+								<li><a href="ocean.html">- Ocean Variability</a></li>
+								<li><a href="albedo.html">- Albedo</a></li>
+							</ul>
+							<li><a href="external.html">External Factors of Climate Change</a></li>
+							<ul>
+								<li><a href="orbital.html">- Orbital Variation</a></li>
+								<li><a href="solar.html">- Solar Cycle</a></li>
+								<li><a href="aerosols.html">- Aerosols</a></li>
+							</ul>
+						</ul>
+					</div>
+				</aside>
+			</div>
+
+			<footer>
+				<small>&copy;<a href="index.html" title="It's All Real"> It's All REAL </a> All Rights Reserved.</small>
+			</footer>
+		</div>
+	</body>
+</html>
